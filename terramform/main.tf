@@ -12,11 +12,10 @@ resource "azurerm_resource_group_template_deployment" "storage" {
   resource_group_name = azurerm_resource_group.rg.name
   deployment_mode     = "Incremental"
 
-  template_content = file("storage-template.json")
+  template_content = file("~/azure/my-azure-project/arm-templates/storage-template.json")
 
   parameters_content = jsonencode({
     storageAccountName1 = { value = "220325storageaccount1" }
     storageAccountName2 = { value = "220325storageaccount2" }
   })
 }
-
