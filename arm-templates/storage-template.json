@@ -1,20 +1,12 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName1": {
-      "type": "string"
-    },
-    "storageAccountName2": {
-      "type": "string"
-    }
-  },
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-04-01",
-      "name": "[parameters('storageAccountName1')]",
-      "location": "East US",
+      "apiVersion": "2022-09-01",
+      "name": "storageaccount1",
+      "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
       },
@@ -23,9 +15,9 @@
     },
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-04-01",
-      "name": "[parameters('storageAccountName2')]",
-      "location": "East US",
+      "apiVersion": "2022-09-01",
+      "name": "storageaccount2",
+      "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
       },
@@ -33,36 +25,22 @@
       "properties": {}
     },
     {
-      "type": "Microsoft.Storage/storageAccounts/blobServices",
-      "apiVersion": "2021-04-01",
-      "name": "[concat(parameters('storageAccountName1'), '/default')]",
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2022-09-01",
+      "name": "storageaccount1/default/container1",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName1'))]"
+        "[resourceId('Microsoft.Storage/storageAccounts', 'storageaccount1')]"
       ],
-      "properties": {
-        "cors": {
-          "corsRules": []
-        },
-        "deleteRetentionPolicy": {
-          "enabled": false
-        }
-      }
+      "properties": {}
     },
     {
-      "type": "Microsoft.Storage/storageAccounts/blobServices",
-      "apiVersion": "2021-04-01",
-      "name": "[concat(parameters('storageAccountName2'), '/default')]",
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2022-09-01",
+      "name": "storageaccount2/default/container2",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName2'))]"
+        "[resourceId('Microsoft.Storage/storageAccounts', 'storageaccount2')]"
       ],
-      "properties": {
-        "cors": {
-          "corsRules": []
-        },
-        "deleteRetentionPolicy": {
-          "enabled": false
-        }
-      }
+      "properties": {}
     }
   ]
 }
