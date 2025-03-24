@@ -5,7 +5,7 @@
     {
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2022-09-01",
-      "name": "storageaccount1",
+      "name": "[concat('sg1', uniqueString(resourceGroup().id))]",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
@@ -16,7 +16,7 @@
     {
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2022-09-01",
-      "name": "storageaccount2",
+      "name": "[concat('sg2', uniqueString(resourceGroup().id))]",
       "location": "[resourceGroup().location]",
       "sku": {
         "name": "Standard_LRS"
@@ -27,21 +27,30 @@
     {
       "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
       "apiVersion": "2022-09-01",
-      "name": "storageaccount1/default/container1",
+      "name": "[concat('sg1', uniqueString(resourceGroup().id), '/default/container1')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', 'storageaccount1')]"
+        "[resourceId('Microsoft.Storage/storageAccounts', concat('sg1', uniqueString(resourceGroup().id)))]"
       ],
       "properties": {}
     },
     {
       "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
       "apiVersion": "2022-09-01",
-      "name": "storageaccount2/default/container2",
+      "name": "[concat('sg2', uniqueString(resourceGroup().id), '/default/container2')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', 'storageaccount2')]"
+        "[resourceId('Microsoft.Storage/storageAccounts', concat('sg2', uniqueString(resourceGroup().id)))]"
       ],
       "properties": {}
     }
-  ]
+  ],
+  "outputs": {
+    "sg1Name": {
+      "type": "string",
+      "value": "[concat('sg1', uniqueString(resourceGroup().id))]"
+    },
+    "sg2Name": {
+      "type": "string",
+      "value": "[concat('sg2', uniqueString(resourceGroup().id))]"
+    }
+  }
 }
-
