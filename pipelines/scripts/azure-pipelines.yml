@@ -23,6 +23,9 @@ steps:
 
     bash ~/my-azure-project/pipelines/scripts/upload-and-copy-files.sh "$STORAGE_ACCOUNT_1" "$STORAGE_ACCOUNT_2"
   displayName: 'Upload and Copy Files'
+  env:
+    STORAGE_ACCOUNT_1_SAS: $(STORAGE_ACCOUNT_1_SAS) 
+    STORAGE_ACCOUNT_2_SAS: $(STORAGE_ACCOUNT_2_SAS)  
 
 - script: |
     rm -rf ~/my-azure-project/pipelines/temp_blobs/
@@ -43,5 +46,7 @@ steps:
       echo "Step failed at $(date '+%Y-%m-%d %H:%M:%S')" >> ~/my-azure-project/pipelines/log.txt
     fi
   displayName: 'Log Failures'
+
+  
 
 
