@@ -44,13 +44,13 @@
     }
   ],
   "outputs": {
-    "sg1Name": {
+    "storageAccount1Name": {
       "type": "string",
-      "value": "[concat('storageAccount1Name', uniqueString(resourceGroup().id))]"
+      "value": "[concat('sg1', uniqueString(resourceGroup().id))]"
     },
-    "sg2Name": {
+    "storageAccount2Name": {
       "type": "string",
-      "value": "[concat('storageAccount2Name', uniqueString(resourceGroup().id))]"
+      "value": "[concat('sg2', uniqueString(resourceGroup().id))]"
     }
   }
 }
