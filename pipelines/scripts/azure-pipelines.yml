@@ -21,8 +21,8 @@ steps:
     STORAGE_ACCOUNT_1=$(az deployment group show --resource-group yuval-rg --name storage-deployment --query properties.outputs.storageAccount1Name.value -o tsv)
     STORAGE_ACCOUNT_2=$(az deployment group show --resource-group yuval-rg --name storage-deployment --query properties.outputs.storageAccount2Name.value -o tsv)
 
-    bash upload-and-copy-files.sh "$STORAGE_ACCOUNT_1" "$STORAGE_ACCOUNT_2"
-  displayName: 'Upload and Copy Blobs'
+    bash ~/my-azure-project/pipelines/scripts/upload-and-copy-files.sh "$STORAGE_ACCOUNT_1" "$STORAGE_ACCOUNT_2"
+  displayName: 'Upload and Copy Files'
 
 - script: |
     rm -rf ~/my-azure-project/pipelines/temp_blobs/
