@@ -21,7 +21,7 @@ steps:
     STORAGE_ACCOUNT_1=$(az deployment group show --resource-group yuval-rg --name storage-deployment --query properties.outputs.storageAccount1Name.value -o tsv)
     STORAGE_ACCOUNT_2=$(az deployment group show --resource-group yuval-rg --name storage-deployment --query properties.outputs.storageAccount2Name.value -o tsv)
 
-    bash upload_and_copy.sh "$STORAGE_ACCOUNT_1" "$STORAGE_ACCOUNT_2"
+    bash upload-and-copy-files.sh "$STORAGE_ACCOUNT_1" "$STORAGE_ACCOUNT_2"
   displayName: 'Upload and Copy Blobs'
 
 - script: |
