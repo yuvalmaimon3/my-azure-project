@@ -6,8 +6,6 @@ STORAGE_ACCOUNT_2="$2"
 CONTAINER_1="container1"
 CONTAINER_2="container2"
 RESOURCE_GROUP="yuval-rg"
-
-
 echo "Using Storage Accounts: $STORAGE_ACCOUNT_1 and $STORAGE_ACCOUNT_2"
 
 
@@ -21,9 +19,10 @@ echo "Using Storage Accounts: $STORAGE_ACCOUNT_1 and $STORAGE_ACCOUNT_2"
 echo "All files uploaded to Storage Account 1."
 
 # Copying files from first storage to second
+echo $STORAGE_ACCOUNT_1_SAS
 azcopy copy \
-"https://sg1oizgrfizgvyyy.blob.core.windows.net/container1?$(STORAGE_ACCOUNT_1_SAS)" \
-"https://sg2oizgrfizgvyyy.blob.core.windows.net/container2?$(STORAGE_ACCOUNT_2_SAS)" \
+"https://sg1oizgrfizgvyyy.blob.core.windows.net/container1?$STORAGE_ACCOUNT_1_SAS" \
+"https://sg2oizgrfizgvyyy.blob.core.windows.net/container2?$STORAGE_ACCOUNT_2_SAS" \
 --recursive --include-pattern "file*"
 
 
