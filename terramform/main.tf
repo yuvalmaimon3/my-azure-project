@@ -1,21 +1,19 @@
 provider "azurerm" {
-  features {}
+  features {
+    resource_group {
+      prevent_deletion_if_contains_resources = false
+    }
+  }
 }
-
 resource "azurerm_resource_group" "rg" {
   name     = "yuval-rg"
   location = "East US"
 }
 
-resource "azurerm_resource_group_template_deployment" "storage" {
+resource "azurerm_resource_group_template_deployment" "arm_deploy" {
   name                = "storage-deployment"
   resource_group_name = azurerm_resource_group.rg.name
-  deployment_mode     = "Incremental"
+  template_content    = file("~/my-azure-project/arm-templates/storage-template.json")
 
-  template_content = file("~/azure/my-azure-project/arm-templates/storage-template.json")
-
-  parameters_content = jsonencode({
-    storageAccountName1 = { value = "220325storageaccount1" }
-    storageAccountName2 = { value = "220325storageaccount2" }
-  })
+  deployment_mode = "Incremental"
 }

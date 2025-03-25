@@ -1,0 +1,32 @@
+#!/bin/bash
+set -ex
+# Parameter acquisition
+STORAGE_ACCOUNT_1="$1"
+STORAGE_ACCOUNT_2="$2"
+CONTAINER_1="container1"
+CONTAINER_2="container2"
+RESOURCE_GROUP="yuval-rg"
+STORAGE_ACCOUNT_1_SAS="se=2025-04-01T00%3A00%3A00Z&sp=rwdl&spr=https&sv=2022-11-02&sr=c&sig=9yjpoAgBRwNZaymhYALm3o23boCfAveKK8Aq7U9c73k%3D"
+STORAGE_ACCOUNT_2_SAS="se=2025-10-10T00%3A00%3A00Z&sp=w&spr=https&sv=2022-11-02&sr=c&sig=0A7tBf8LD4HMTDBiAXKBjL27PolH2KRKNW0FOL7wOcQ%3D"
+
+echo "Using Storage Accounts: $STORAGE_ACCOUNT_1 and $STORAGE_ACCOUNT_2"
+
+
+# Uploading files to first storage
+
+    az storage blob upload-batch \
+  --source ~/my-azure-project/pipelines/temp_blobs/ \
+  --destination $CONTAINER_1 \
+  --account-name $STORAGE_ACCOUNT_1
+
+echo "All files uploaded to Storage Account 1."
+
+# Copying files from first storage to second
+azcopy copy \
+"https://sg1oizgrfizgvyyy.blob.core.windows.net/container1?$(STORAGE_ACCOUNT_1_SAS)" \
+"https://sg2oizgrfizgvyyy.blob.core.windows.net/container2?$(STORAGE_ACCOUNT_2_SAS)" \
+--recursive --include-pattern "file*"
+
+
+
+echo "All files copied from Storage Account A to B."
