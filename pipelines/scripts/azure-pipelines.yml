@@ -5,17 +5,17 @@ pool:
   name: Default
 
 steps:
-# - script: |
-#     cd ~/my-azure-project/terraform
-#     terraform apply -auto-approve
-#   displayName: 'Run Terraform'
-#   continueOnError: false
+- script: |
+    cd ~/my-azure-project/terraform
+    terraform apply -auto-approve
+  displayName: 'Run Terraform'
+  continueOnError: false
 
-# - script: |
-#     chmod +x ~/my-azure-project/pipelines/scripts/generate-files.sh
-#     ~/my-azure-project/pipelines/scripts/generate-files.sh
-#   displayName: 'Generate Files'
-#   continueOnError: false
+- script: |
+    chmod +x ~/my-azure-project/pipelines/scripts/generate-files.sh
+    ~/my-azure-project/pipelines/scripts/generate-files.sh
+  displayName: 'Generate Files'
+  continueOnError: false
 
 - script: |
     STORAGE_ACCOUNT_1=$(az deployment group show --resource-group yuval-rg --name storage-deployment --query properties.outputs.storageAccount1Name.value -o tsv)
@@ -46,7 +46,3 @@ steps:
       echo "Step failed at $(date '+%Y-%m-%d %H:%M:%S')" >> ~/my-azure-project/pipelines/log.txt
     fi
   displayName: 'Log Failures'
-
-  
-
-
