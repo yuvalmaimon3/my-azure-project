@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+set -e
 # Parameter acquisition
 STORAGE_ACCOUNT_1="$1"
 STORAGE_ACCOUNT_2="$2"
