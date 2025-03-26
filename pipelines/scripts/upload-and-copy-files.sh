@@ -12,7 +12,7 @@ echo "Using Storage Accounts: $STORAGE_ACCOUNT_1 and $STORAGE_ACCOUNT_2"
 # Uploading files to first storage
 
     az storage blob upload-batch \
-  --source ~/my-azure-project/pipelines/temp_blobs/ \
+  --source /home/yuval/my-azure-project/pipelines/temp_blobs/ \
   --destination $CONTAINER_1 \
   --account-name $STORAGE_ACCOUNT_1
 

@@ -13,7 +13,7 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_resource_group_template_deployment" "arm_deploy" {
   name                = "storage-deployment"
   resource_group_name = azurerm_resource_group.rg.name
-  template_content    = file("~/my-azure-project/arm-templates/storage-template.json")
+  template_content    = file("/home/yuval/my-azure-project/arm-templates/storage-template.json")
 
   deployment_mode = "Incremental"
 }
