@@ -1,0 +1,43 @@
+trigger:
+- none
+
+pool:
+  name: Default
+
+steps:
+- script: |
+    cd /home/yuval/my-azure-project/terraform
+    terraform apply -auto-approve
+  displayName: 'Run Terraform. Create storage network and virtual machine'
+  continueOnError: false
+
+# Generate files to upload
+- script: |
+    chmod +x /home/yuval/my-azure-project/pipelines/scripts/generate-files.sh
+    /home/yuval/my-azure-project/pipelines/scripts/generate-files.sh
+  displayName: 'Generate Files'
+  continueOnError: false
+
+# Export the storage account name to env variable
+- script: |
+    STORAGE_ACCOUNT_1=$(az deployment group show --resource-group yuval-rg --name storage-deployment --query properties.outputs.storageAccount1Name.value -o tsv)
+    STORAGE_ACCOUNT_2=$(az deployment group show --resource-group yuval-rg --name storage-deployment --query properties.outputs.storageAccount2Name.value -o tsv)
+
+    bash /home/yuval/my-azure-project/pipelines/scripts/upload-and-copy-files.sh "$STORAGE_ACCOUNT_1" "$STORAGE_ACCOUNT_2"
+  displayName: 'Upload and Copy Files'
+
+# Remove leftovers
+- script: |
+    rm -rf /home/yuval/my-azure-project/pipelines/temp_blobs/
+  displayName: 'Delete Generated Files'
+  continueOnError: false
+
+#Update git. inclouding updating terrafrom state files
+- script: |
+    DATE=$(date '+%Y-%m-%d %H:%M:%S')
+    cd /home/yuval/my-azure-project
+    git add .
+    git commit -m "run $DATE"
+    git push
+  displayName: 'Update Git'
+  continueOnError: false

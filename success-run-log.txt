@@ -1,0 +1,486 @@
+2025-03-27T17:02:06.6989187Z ##[section]Starting: Job
+2025-03-27T17:02:07.0255327Z ##[section]Starting: Initialize job
+2025-03-27T17:02:07.0257936Z Agent name: 'devops-agent'
+2025-03-27T17:02:07.0258473Z Agent machine name: 'DESKTOP-RC2FOAD'
+2025-03-27T17:02:07.0258724Z Current agent version: '4.252.0'
+2025-03-27T17:02:07.1510069Z Agent running as: 'yuval'
+2025-03-27T17:02:07.1572192Z Prepare build directory.
+2025-03-27T17:02:07.2024557Z Set build variables.
+2025-03-27T17:02:07.2044137Z Download all required tasks.
+2025-03-27T17:02:07.2976209Z Checking job knob settings.
+2025-03-27T17:02:07.2992083Z    Knob: DockerActionRetries = true Source: $(VSTSAGENT_DOCKER_ACTION_RETRIES) 
+2025-03-27T17:02:07.2993983Z    Knob: UseGitLongPaths = true Source: $(USE_GIT_LONG_PATHS) 
+2025-03-27T17:02:07.2996217Z    Knob: EnableIssueSourceValidation = true Source: $(ENABLE_ISSUE_SOURCE_VALIDATION) 
+2025-03-27T17:02:07.2997629Z    Knob: AgentEnablePipelineArtifactLargeChunkSize = true Source: $(AGENT_ENABLE_PIPELINEARTIFACT_LARGE_CHUNK_SIZE) 
+2025-03-27T17:02:07.3000755Z    Knob: ContinueAfterCancelProcessTreeKillAttempt = true Source: $(VSTSAGENT_CONTINUE_AFTER_CANCEL_PROCESSTREEKILL_ATTEMPT) 
+2025-03-27T17:02:07.3002023Z    Knob: ProcessHandlerSecureArguments = false Source: $(AZP_75787_ENABLE_NEW_LOGIC) 
+2025-03-27T17:02:07.3002735Z    Knob: ProcessHandlerSecureArguments = false Source: $(AZP_75787_ENABLE_NEW_LOGIC_LOG) 
+2025-03-27T17:02:07.3003314Z    Knob: ProcessHandlerTelemetry = true Source: $(AZP_75787_ENABLE_COLLECT) 
+2025-03-27T17:02:07.3003981Z    Knob: UseNewNodeHandlerTelemetry = True Source: $(DistributedTask.Agent.USENEWNODEHANDLERTELEMETRY) 
+2025-03-27T17:02:07.3004624Z    Knob: ProcessHandlerEnableNewLogic = true Source: $(AZP_75787_ENABLE_NEW_PH_LOGIC) 
+2025-03-27T17:02:07.3005592Z    Knob: EnableResourceMonitorDebugOutput = true Source: $(AZP_ENABLE_RESOURCE_MONITOR_DEBUG_OUTPUT) 
+2025-03-27T17:02:07.3006353Z    Knob: EnableResourceUtilizationWarnings = true Source: $(AZP_ENABLE_RESOURCE_UTILIZATION_WARNINGS) 
+2025-03-27T17:02:07.3007533Z    Knob: IgnoreVSTSTaskLib = true Source: $(AZP_AGENT_IGNORE_VSTSTASKLIB) 
+2025-03-27T17:02:07.3008089Z    Knob: FailJobWhenAgentDies = true Source: $(FAIL_JOB_WHEN_AGENT_DIES) 
+2025-03-27T17:02:07.3008817Z    Knob: CheckForTaskDeprecation = true Source: $(AZP_AGENT_CHECK_FOR_TASK_DEPRECATION) 
+2025-03-27T17:02:07.3009656Z    Knob: CheckIfTaskNodeRunnerIsDeprecated246 = False Source: $(DistributedTask.Agent.CheckIfTaskNodeRunnerIsDeprecated246) 
+2025-03-27T17:02:07.3010569Z    Knob: UseNode20ToStartContainer = True Source: $(DistributedTask.Agent.UseNode20ToStartContainer) 
+2025-03-27T17:02:07.3011425Z    Knob: LogTaskNameInUserAgent = true Source: $(AZP_AGENT_LOG_TASKNAME_IN_USERAGENT) 
+2025-03-27T17:02:07.3012291Z    Knob: UseFetchFilterInCheckoutTask = true Source: $(AGENT_USE_FETCH_FILTER_IN_CHECKOUT_TASK) 
+2025-03-27T17:02:07.3013038Z    Knob: Rosetta2Warning = true Source: $(ROSETTA2_WARNING) 
+2025-03-27T17:02:07.3014381Z    Knob: AddForceCredentialsToGitCheckout = True Source: $(DistributedTask.Agent.AddForceCredentialsToGitCheckout) 
+2025-03-27T17:02:07.3015142Z Finished checking job knob settings.
+2025-03-27T17:02:07.3694628Z Plugin: 'Test Result Parser plugin' is running in background.
+2025-03-27T17:02:07.3695027Z Plugin: 'Test File Publisher plugin' is running in background.
+2025-03-27T17:02:07.3695935Z Start tracking orphan processes.
+2025-03-27T17:02:07.3789695Z ##[section]Finishing: Initialize job
+2025-03-27T17:02:07.3852245Z ##[section]Async Command Start: DetectDockerContainer
+2025-03-27T17:02:07.3853010Z ##[section]Async Command End: DetectDockerContainer
+2025-03-27T17:02:07.3854283Z ##[section]Async Command Start: DetectDockerContainer
+2025-03-27T17:02:07.3854889Z ##[section]Async Command End: DetectDockerContainer
+2025-03-27T17:02:07.4000023Z ##[section]Starting: Checkout yuvalmaimon3/my-azure-project@main to s
+2025-03-27T17:02:07.4123142Z ==============================================================================
+2025-03-27T17:02:07.4125013Z Task         : Get sources
+2025-03-27T17:02:07.4125980Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2025-03-27T17:02:07.4126363Z Version      : 1.0.0
+2025-03-27T17:02:07.4127162Z Author       : Microsoft
+2025-03-27T17:02:07.4127795Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2025-03-27T17:02:07.4128202Z ==============================================================================
+2025-03-27T17:02:07.9364255Z Syncing repository: yuvalmaimon3/my-azure-project (GitHub)
+2025-03-27T17:02:08.0542825Z ##[command]git version
+2025-03-27T17:02:08.0600015Z git version 2.34.1
+2025-03-27T17:02:08.0605384Z ##[command]git config --get remote.origin.url
+2025-03-27T17:02:08.0649349Z ##[command]git clean -ffdx
+2025-03-27T17:02:08.0669028Z ##[command]git reset --hard HEAD
+2025-03-27T17:02:08.0685028Z HEAD is now at c6b347a run 2025-03-27 18:54:35
+2025-03-27T17:02:08.0728038Z ##[command]git config gc.auto 0
+2025-03-27T17:02:08.0786143Z ##[command]git config core.longpaths true
+2025-03-27T17:02:08.0807103Z ##[command]git config --get-all http.https://github.com/yuvalmaimon3/my-azure-project.extraheader
+2025-03-27T17:02:08.0849866Z ##[command]git config --get-all http.extraheader
+2025-03-27T17:02:08.0876131Z ##[command]git config --get-regexp .*extraheader
+2025-03-27T17:02:08.0892764Z ##[command]git config --get-all http.proxy
+2025-03-27T17:02:08.0924489Z ##[command]git config http.version HTTP/1.1
+2025-03-27T17:02:08.0962575Z ##[command]git --config-env=http.extraheader=env_var_http.extraheader fetch --force --tags --prune --prune-tags --progress --no-recurse-submodules origin --depth=1  +c6b347ad43a1ffb2175d5f6e57736ae87fd3bde1:refs/remotes/origin/c6b347ad43a1ffb2175d5f6e57736ae87fd3bde1
+2025-03-27T17:02:08.7557098Z remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)        
+2025-03-27T17:02:08.8595647Z ##[command]git --config-env=http.extraheader=env_var_http.extraheader fetch --force --tags --prune --prune-tags --progress --no-recurse-submodules origin --depth=1  +c6b347ad43a1ffb2175d5f6e57736ae87fd3bde1
+2025-03-27T17:02:09.3643155Z remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)        
+2025-03-27T17:02:09.3686327Z From https://github.com/yuvalmaimon3/my-azure-project
+2025-03-27T17:02:09.3690105Z  * branch            c6b347ad43a1ffb2175d5f6e57736ae87fd3bde1 -> FETCH_HEAD
+2025-03-27T17:02:09.4680479Z ##[command]git checkout --progress --force refs/remotes/origin/c6b347ad43a1ffb2175d5f6e57736ae87fd3bde1
+2025-03-27T17:02:09.4694210Z HEAD is now at c6b347a run 2025-03-27 18:54:35
+2025-03-27T17:02:09.4751347Z ##[section]Finishing: Checkout yuvalmaimon3/my-azure-project@main to s
+2025-03-27T17:02:09.4793139Z ##[section]Starting: Run Terraform. Create storage network and virtual machine
+2025-03-27T17:02:09.4827934Z ==============================================================================
+2025-03-27T17:02:09.4829534Z Task         : Command line
+2025-03-27T17:02:09.4829988Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2025-03-27T17:02:09.4830581Z Version      : 2.250.1
+2025-03-27T17:02:09.4830902Z Author       : Microsoft Corporation
+2025-03-27T17:02:09.4831346Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2025-03-27T17:02:09.4832300Z ==============================================================================
+2025-03-27T17:02:09.8053121Z Generating script.
+2025-03-27T17:02:09.8060948Z ========================== Starting Command Output ===========================
+2025-03-27T17:02:09.8090507Z [command]/usr/bin/bash --noprofile --norc /home/yuval/azure-agent/myagent/~/my-azure-project/pipelines/_temp/1d3e06e6-f1f2-4c9d-91d8-698660164a72.sh
+2025-03-27T17:02:15.1603528Z 
+2025-03-27T17:02:15.1605502Z Terraform used the selected providers to generate the following execution
+2025-03-27T17:02:15.1605968Z plan. Resource actions are indicated with the following symbols:
+2025-03-27T17:02:15.1691521Z   m+ create
+2025-03-27T17:02:15.1693909Z 
+2025-03-27T17:02:15.1694795Z Terraform will perform the following actions:
+2025-03-27T17:02:15.1695578Z 
+2025-03-27T17:02:15.1696089Z   # azurerm_resource_group.rg will be created
+2025-03-27T17:02:15.1696624Z   m+ resource "azurerm_resource_group" "rg" {
+2025-03-27T17:02:15.1697224Z       m+ id       = (known after apply)
+2025-03-27T17:02:15.1697810Z       m+ location = "eastus"
+2025-03-27T17:02:15.1809794Z       m+ name     = "yuval-rg"
+2025-03-27T17:02:15.1810853Z     }
+2025-03-27T17:02:15.1811025Z 
+2025-03-27T17:02:15.1811383Z   # azurerm_resource_group_template_deployment.networking_vm_deploy will be created
+2025-03-27T17:02:15.1811749Z   m+ resource "azurerm_resource_group_template_deployment" "networking_vm_deploy" {
+2025-03-27T17:02:15.1812031Z       m+ deployment_mode     = "Incremental"
+2025-03-27T17:02:15.1812308Z       m+ id                  = (known after apply)
+2025-03-27T17:02:15.1812801Z       m+ name                = "networking-vm-deployment"
+2025-03-27T17:02:15.1813148Z       m+ output_content      = (known after apply)
+2025-03-27T17:02:15.1813432Z       m+ parameters_content  = (known after apply)
+2025-03-27T17:02:15.1813703Z       m+ resource_group_name = "yuval-rg"
+2025-03-27T17:02:15.1813963Z       m+ template_content    = jsonencode(
+2025-03-27T17:02:15.1814154Z             {
+2025-03-27T17:02:15.1814468Z               m+ "$schema"      = "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"
+2025-03-27T17:02:15.1814779Z               m+ contentVersion = "1.0.0.0"
+2025-03-27T17:02:15.1815037Z               m+ resources      = [
+2025-03-27T17:02:15.1815257Z                   m+ {
+2025-03-27T17:02:15.1815503Z                       m+ apiVersion = "2021-05-01"
+2025-03-27T17:02:15.1815819Z                       m+ location   = "eastus"
+2025-03-27T17:02:15.1816433Z                       m+ name       = "myVnet"
+2025-03-27T17:02:15.1816682Z                       m+ properties = {
+2025-03-27T17:02:15.1816955Z                           m+ addressSpace = {
+2025-03-27T17:02:15.1817231Z                               m+ addressPrefixes = [
+2025-03-27T17:02:15.1817682Z                                   m+ "10.0.0.0/16",
+2025-03-27T17:02:15.1817950Z                                 ]
+2025-03-27T17:02:15.1818128Z                             }
+2025-03-27T17:02:15.1818358Z                           m+ subnets      = [
+2025-03-27T17:02:15.1818978Z                               m+ {
+2025-03-27T17:02:15.1819312Z                                   m+ name       = "mySubnet"
+2025-03-27T17:02:15.1819567Z                                   m+ properties = {
+2025-03-27T17:02:15.1819840Z                                       m+ addressPrefix = "10.0.0.0/24"
+2025-03-27T17:02:15.1820045Z                                     }
+2025-03-27T17:02:15.1820209Z                                 },
+2025-03-27T17:02:15.1820376Z                             ]
+2025-03-27T17:02:15.1820540Z                         }
+2025-03-27T17:02:15.1820793Z                       m+ type       = "Microsoft.Network/virtualNetworks"
+2025-03-27T17:02:15.1820981Z                     },
+2025-03-27T17:02:15.1821183Z                   m+ {
+2025-03-27T17:02:15.1821429Z                       m+ apiVersion = "2021-05-01"
+2025-03-27T17:02:15.1821685Z                       m+ location   = "eastus"
+2025-03-27T17:02:15.1821922Z                       m+ name       = "myNSG"
+2025-03-27T17:02:15.1822156Z                       m+ properties = {
+2025-03-27T17:02:15.1822397Z                           m+ securityRules = [
+2025-03-27T17:02:15.1822892Z                               m+ {
+2025-03-27T17:02:15.1823161Z                                   m+ name       = "AllowSSH"
+2025-03-27T17:02:15.1823619Z                                   m+ properties = {
+2025-03-27T17:02:15.1823884Z                                       m+ access                   = "Allow"
+2025-03-27T17:02:15.1824155Z                                       m+ destinationAddressPrefix = "*"
+2025-03-27T17:02:15.1824449Z                                       m+ destinationPortRange     = "22"
+2025-03-27T17:02:15.1824728Z                                       m+ direction                = "Inbound"
+2025-03-27T17:02:15.1825009Z                                       m+ priority                 = 1000
+2025-03-27T17:02:15.1825279Z                                       m+ protocol                 = "Tcp"
+2025-03-27T17:02:15.1825561Z                                       m+ sourceAddressPrefix      = "46.116.122.216"
+2025-03-27T17:02:15.1825836Z                                       m+ sourcePortRange          = "*"
+2025-03-27T17:02:15.1826176Z                                     }
+2025-03-27T17:02:15.1826335Z                                 },
+2025-03-27T17:02:15.1826490Z                             ]
+2025-03-27T17:02:15.1826645Z                         }
+2025-03-27T17:02:15.1826903Z                       m+ type       = "Microsoft.Network/networkSecurityGroups"
+2025-03-27T17:02:15.1827088Z                     },
+2025-03-27T17:02:15.1827298Z                   m+ {
+2025-03-27T17:02:15.1827729Z                       m+ apiVersion = "2021-05-01"
+2025-03-27T17:02:15.1828060Z                       m+ location   = "eastus"
+2025-03-27T17:02:15.1828317Z                       m+ name       = "myPublicIP"
+2025-03-27T17:02:15.1828560Z                       m+ properties = {
+2025-03-27T17:02:15.1828820Z                           m+ publicIPAllocationMethod = "Dynamic"
+2025-03-27T17:02:15.1829021Z                         }
+2025-03-27T17:02:15.1829245Z                       m+ sku        = {
+2025-03-27T17:02:15.1829479Z                           m+ name = "Basic"
+2025-03-27T17:02:15.1829653Z                         }
+2025-03-27T17:02:15.1829903Z                       m+ type       = "Microsoft.Network/publicIPAddresses"
+2025-03-27T17:02:15.1830099Z                     },
+2025-03-27T17:02:15.1830329Z                   m+ {
+2025-03-27T17:02:15.1830573Z                       m+ apiVersion = "2021-05-01"
+2025-03-27T17:02:15.1830976Z                       m+ dependsOn  = [
+2025-03-27T17:02:15.1831321Z                           m+ "[resourceId('Microsoft.Network/networkSecurityGroups', 'myNSG')]",
+2025-03-27T17:02:15.1831524Z                         ]
+2025-03-27T17:02:15.1831749Z                       m+ location   = "eastus"
+2025-03-27T17:02:15.1832001Z                       m+ name       = "myNIC"
+2025-03-27T17:02:15.1832238Z                       m+ properties = {
+2025-03-27T17:02:15.1832659Z                           m+ ipConfigurations     = [
+2025-03-27T17:02:15.1832980Z                               m+ {
+2025-03-27T17:02:15.1834832Z                                   m+ name       = "ipconfig1"
+2025-03-27T17:02:15.1835112Z                                   m+ properties = {
+2025-03-27T17:02:15.1835389Z                                       m+ publicIPAddress = {
+2025-03-27T17:02:15.1835718Z                                           m+ id = "[resourceId('Microsoft.Network/publicIPAddresses', 'myPublicIP')]"
+2025-03-27T17:02:15.1835930Z                                         }
+2025-03-27T17:02:15.1836169Z                                       m+ subnet          = {
+2025-03-27T17:02:15.1836864Z                                           m+ id = "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'myVnet', 'mySubnet')]"
+2025-03-27T17:02:15.1837993Z                                         }
+2025-03-27T17:02:15.1838265Z                                     }
+2025-03-27T17:02:15.1838433Z                                 },
+2025-03-27T17:02:15.1838848Z                             ]
+2025-03-27T17:02:15.1839206Z                           m+ networkSecurityGroup = {
+2025-03-27T17:02:15.1839528Z                               m+ id = "[resourceId('Microsoft.Network/networkSecurityGroups', 'myNSG')]"
+2025-03-27T17:02:15.1842299Z                             }
+2025-03-27T17:02:15.1842716Z                         }
+2025-03-27T17:02:15.1843193Z                       m+ type       = "Microsoft.Network/networkInterfaces"
+2025-03-27T17:02:15.1843401Z                     },
+2025-03-27T17:02:15.1843626Z                   m+ {
+2025-03-27T17:02:15.1843883Z                       m+ apiVersion = "2021-11-01"
+2025-03-27T17:02:15.1844593Z                       m+ dependsOn  = [
+2025-03-27T17:02:15.1845059Z                           m+ "[resourceId('Microsoft.Network/networkInterfaces', 'myNIC')]",
+2025-03-27T17:02:15.1849009Z                         ]
+2025-03-27T17:02:15.1851811Z                       m+ location   = "eastus"
+2025-03-27T17:02:15.1853475Z                       m+ name       = "myVM"
+2025-03-27T17:02:15.1853838Z                       m+ properties = {
+2025-03-27T17:02:15.1854096Z                           m+ hardwareProfile = {
+2025-03-27T17:02:15.1854398Z                               m+ vmSize = "Standard_B1s"
+2025-03-27T17:02:15.1854586Z                             }
+2025-03-27T17:02:15.1854815Z                           m+ networkProfile  = {
+2025-03-27T17:02:15.1855071Z                               m+ networkInterfaces = [
+2025-03-27T17:02:15.1855310Z                                   m+ {
+2025-03-27T17:02:15.1855642Z                                       m+ id = "[resourceId('Microsoft.Network/networkInterfaces', 'myNIC')]"
+2025-03-27T17:02:15.1855875Z                                     },
+2025-03-27T17:02:15.1856040Z                                 ]
+2025-03-27T17:02:15.1856208Z                             }
+2025-03-27T17:02:15.1856457Z                           m+ osProfile       = {
+2025-03-27T17:02:15.1856726Z                               m+ adminUsername      = "azureuser"
+2025-03-27T17:02:15.1857003Z                               m+ computerName       = "myVM"
+2025-03-27T17:02:15.1857886Z                               m+ linuxConfiguration = {
+2025-03-27T17:02:15.1858442Z                                   m+ disablePasswordAuthentication = true
+2025-03-27T17:02:15.1858732Z                                   m+ ssh                           = {
+2025-03-27T17:02:15.1859005Z                                       m+ publicKeys = [
+2025-03-27T17:02:15.1859272Z                                           m+ {
+2025-03-27T17:02:15.1860203Z                                               m+ keyData = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC+A3CUqvUWY/tzCe4XQdEA8Ehz6xzCV47z/iZFFizdd3LequoOJ93YQ8pLi0/iH5gE9BA29NiQNE4iVjIuA4bT63ug8tkmYMr+kGci06PaJBHRxhJxlQrtWQZ45eDPipM60EOtRpZMvsmSgVwVJcnZROrsVQGa2IuQ/136Jl4Lr1dd9GJF084GtPPTVH95XtJyHsk6Fj32HMXC6JIqwI4z2m5VL/KbAX9gsFHmUpJHAIUT/7Kf5/QjlVRBZ/q1pVvWzqPAHQc4JiTPviV2DjYUoviuJ0cg0owPKVasr/UeOjlfMd7EySZM6QJhiVmxfBzIfauk9SzvMeIIZDjl1ZgLAWuyHftbsgMHKYP5ut24N9K7ANje73apfOyY+xdIGXpbEEdSjOvoXKsoiVq793RTdub42tLClm+TM5FrvI/dA98PPGIqVQD6TwATz744kafEg4XMerCEgk0Rmuw5lfFMFSz+rf8bBC4sewQ7TJn9KURJ3lEW2d7dRRxlNQTAnwM= yuval@DESKTOP-RC2FOAD"
+2025-03-27T17:02:15.1860893Z                                               m+ path    = "/home/azureuser/.ssh/authorized_keys"
+2025-03-27T17:02:15.1861116Z                                             },
+2025-03-27T17:02:15.1861301Z                                         ]
+2025-03-27T17:02:15.1861764Z                                     }
+2025-03-27T17:02:15.1861935Z                                 }
+2025-03-27T17:02:15.1862092Z                             }
+2025-03-27T17:02:15.1862348Z                           m+ storageProfile  = {
+2025-03-27T17:02:15.1862858Z                               m+ imageReference = {
+2025-03-27T17:02:15.1863238Z                                   m+ offer     = "UbuntuServer"
+2025-03-27T17:02:15.1863530Z                                   m+ publisher = "Canonical"
+2025-03-27T17:02:15.1863812Z                                   m+ sku       = "18.04-LTS"
+2025-03-27T17:02:15.1864087Z                                   m+ version   = "latest"
+2025-03-27T17:02:15.1864276Z                                 }
+2025-03-27T17:02:15.1864520Z                               m+ osDisk         = {
+2025-03-27T17:02:15.1865254Z                                   m+ createOption = "FromImage"
+2025-03-27T17:02:15.1865575Z                                 }
+2025-03-27T17:02:15.1865751Z                             }
+2025-03-27T17:02:15.1866168Z                         }
+2025-03-27T17:02:15.1866545Z                       m+ type       = "Microsoft.Compute/virtualMachines"
+2025-03-27T17:02:15.1866781Z                     },
+2025-03-27T17:02:15.1866940Z                 ]
+2025-03-27T17:02:15.1867101Z             }
+2025-03-27T17:02:15.1867259Z         )
+2025-03-27T17:02:15.1867415Z     }
+2025-03-27T17:02:15.1867509Z 
+2025-03-27T17:02:15.1868041Z   # azurerm_resource_group_template_deployment.storage_deploy will be created
+2025-03-27T17:02:15.1868400Z   m+ resource "azurerm_resource_group_template_deployment" "storage_deploy" {
+2025-03-27T17:02:15.1868681Z       m+ deployment_mode     = "Incremental"
+2025-03-27T17:02:15.1868935Z       m+ id                  = (known after apply)
+2025-03-27T17:02:15.1869185Z       m+ name                = "storage-deployment"
+2025-03-27T17:02:15.1869470Z       m+ output_content      = (known after apply)
+2025-03-27T17:02:15.1869730Z       m+ parameters_content  = (known after apply)
+2025-03-27T17:02:15.1869982Z       m+ resource_group_name = "yuval-rg"
+2025-03-27T17:02:15.1870242Z       m+ template_content    = jsonencode(
+2025-03-27T17:02:15.1870416Z             {
+2025-03-27T17:02:15.1870717Z               m+ "$schema"      = "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"
+2025-03-27T17:02:15.1901035Z               m+ contentVersion = "1.0.0.0"
+2025-03-27T17:02:15.1902578Z               m+ outputs        = {
+2025-03-27T17:02:15.1902987Z                   m+ storageAccount1Name = {
+2025-03-27T17:02:15.1903277Z                       m+ type  = "string"
+2025-03-27T17:02:15.1925133Z                       m+ value = "[concat('sg1', uniqueString(resourceGroup().id))]"
+2025-03-27T17:02:15.1926104Z                     }
+2025-03-27T17:02:15.1926402Z                   m+ storageAccount2Name = {
+2025-03-27T17:02:15.1927621Z                       m+ type  = "string"
+2025-03-27T17:02:15.1929193Z                       m+ value = "[concat('sg2', uniqueString(resourceGroup().id))]"
+2025-03-27T17:02:15.1930223Z                     }
+2025-03-27T17:02:15.1931749Z                 }
+2025-03-27T17:02:15.1932064Z               m+ resources      = [
+2025-03-27T17:02:15.1932309Z                   m+ {
+2025-03-27T17:02:15.1935709Z                       m+ apiVersion = "2022-09-01"
+2025-03-27T17:02:15.1945924Z                       m+ kind       = "StorageV2"
+2025-03-27T17:02:15.1946678Z                       m+ location   = "[resourceGroup().location]"
+2025-03-27T17:02:15.1947012Z                       m+ name       = "[concat('sg1', uniqueString(resourceGroup().id))]"
+2025-03-27T17:02:15.1947892Z                       m+ properties = {}
+2025-03-27T17:02:15.1948163Z                       m+ sku        = {
+2025-03-27T17:02:15.1948417Z                           m+ name = "Standard_LRS"
+2025-03-27T17:02:15.1948675Z                         }
+2025-03-27T17:02:15.1948940Z                       m+ type       = "Microsoft.Storage/storageAccounts"
+2025-03-27T17:02:15.1949137Z                     },
+2025-03-27T17:02:15.1949344Z                   m+ {
+2025-03-27T17:02:15.1951779Z                       m+ apiVersion = "2022-09-01"
+2025-03-27T17:02:15.1952150Z                       m+ kind       = "StorageV2"
+2025-03-27T17:02:15.1954555Z                       m+ location   = "[resourceGroup().location]"
+2025-03-27T17:02:15.1954953Z                       m+ name       = "[concat('sg2', uniqueString(resourceGroup().id))]"
+2025-03-27T17:02:15.1955225Z                       m+ properties = {}
+2025-03-27T17:02:15.1955473Z                       m+ sku        = {
+2025-03-27T17:02:15.1955720Z                           m+ name = "Standard_LRS"
+2025-03-27T17:02:15.1955896Z                         }
+2025-03-27T17:02:15.1956151Z                       m+ type       = "Microsoft.Storage/storageAccounts"
+2025-03-27T17:02:15.1956350Z                     },
+2025-03-27T17:02:15.1956556Z                   m+ {
+2025-03-27T17:02:15.1956801Z                       m+ apiVersion = "2022-09-01"
+2025-03-27T17:02:15.1957053Z                       m+ dependsOn  = [
+2025-03-27T17:02:15.1957389Z                           m+ "[resourceId('Microsoft.Storage/storageAccounts', concat('sg1', uniqueString(resourceGroup().id)))]",
+2025-03-27T17:02:15.1957821Z                         ]
+2025-03-27T17:02:15.1958164Z                       m+ name       = "[concat('sg1', uniqueString(resourceGroup().id), '/default/container1')]"
+2025-03-27T17:02:15.1958449Z                       m+ properties = {}
+2025-03-27T17:02:15.1958744Z                       m+ type       = "Microsoft.Storage/storageAccounts/blobServices/containers"
+2025-03-27T17:02:15.1958946Z                     },
+2025-03-27T17:02:15.1959160Z                   m+ {
+2025-03-27T17:02:15.1959410Z                       m+ apiVersion = "2022-09-01"
+2025-03-27T17:02:15.1959659Z                       m+ dependsOn  = [
+2025-03-27T17:02:15.1960185Z                           m+ "[resourceId('Microsoft.Storage/storageAccounts', concat('sg2', uniqueString(resourceGroup().id)))]",
+2025-03-27T17:02:15.1960432Z                         ]
+2025-03-27T17:02:15.1960736Z                       m+ name       = "[concat('sg2', uniqueString(resourceGroup().id), '/default/container2')]"
+2025-03-27T17:02:15.1961005Z                       m+ properties = {}
+2025-03-27T17:02:15.1962942Z                       m+ type       = "Microsoft.Storage/storageAccounts/blobServices/containers"
+2025-03-27T17:02:15.1965930Z                     },
+2025-03-27T17:02:15.1966158Z                 ]
+2025-03-27T17:02:15.1966324Z             }
+2025-03-27T17:02:15.1966476Z         )
+2025-03-27T17:02:15.1966619Z     }
+2025-03-27T17:02:15.1966705Z 
+2025-03-27T17:02:15.1967036Z Plan: 3 to add, 0 to change, 0 to destroy.
+2025-03-27T17:02:24.5427117Z azurerm_resource_group.rg: Creating...
+2025-03-27T17:02:34.5433898Z azurerm_resource_group.rg: Still creating... [10s elapsed]
+2025-03-27T17:02:40.4307458Z azurerm_resource_group.rg: Creation complete after 15s [id=/subscriptions/e1e83138-0208-41e9-9a51-b371f73cf568/resourceGroups/yuval-rg]
+2025-03-27T17:02:40.4418839Z azurerm_resource_group_template_deployment.storage_deploy: Creating...
+2025-03-27T17:02:40.4440367Z azurerm_resource_group_template_deployment.networking_vm_deploy: Creating...
+2025-03-27T17:02:50.4428902Z azurerm_resource_group_template_deployment.storage_deploy: Still creating... [10s elapsed]
+2025-03-27T17:02:50.4429807Z azurerm_resource_group_template_deployment.networking_vm_deploy: Still creating... [10s elapsed]
+2025-03-27T17:03:00.4436226Z azurerm_resource_group_template_deployment.storage_deploy: Still creating... [20s elapsed]
+2025-03-27T17:03:00.4437279Z azurerm_resource_group_template_deployment.networking_vm_deploy: Still creating... [20s elapsed]
+2025-03-27T17:03:10.4440153Z azurerm_resource_group_template_deployment.storage_deploy: Still creating... [30s elapsed]
+2025-03-27T17:03:10.4441570Z azurerm_resource_group_template_deployment.networking_vm_deploy: Still creating... [30s elapsed]
+2025-03-27T17:03:20.4449874Z azurerm_resource_group_template_deployment.networking_vm_deploy: Still creating... [40s elapsed]
+2025-03-27T17:03:20.4450744Z azurerm_resource_group_template_deployment.storage_deploy: Still creating... [40s elapsed]
+2025-03-27T17:03:22.8541650Z azurerm_resource_group_template_deployment.storage_deploy: Creation complete after 43s [id=/subscriptions/e1e83138-0208-41e9-9a51-b371f73cf568/resourceGroups/yuval-rg/providers/Microsoft.Resources/deployments/storage-deployment]
+2025-03-27T17:03:24.0834842Z azurerm_resource_group_template_deployment.networking_vm_deploy: Creation complete after 44s [id=/subscriptions/e1e83138-0208-41e9-9a51-b371f73cf568/resourceGroups/yuval-rg/providers/Microsoft.Resources/deployments/networking-vm-deployment]
+2025-03-27T17:03:24.1013572Z m
+2025-03-27T17:03:24.1014541Z Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+2025-03-27T17:03:24.1049112Z 
+2025-03-27T17:03:24.1119687Z ##[section]Finishing: Run Terraform. Create storage network and virtual machine
+2025-03-27T17:03:24.1147935Z ##[section]Starting: Generate Files
+2025-03-27T17:03:24.1152305Z ==============================================================================
+2025-03-27T17:03:24.1152654Z Task         : Command line
+2025-03-27T17:03:24.1152762Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2025-03-27T17:03:24.1152876Z Version      : 2.250.1
+2025-03-27T17:03:24.1152952Z Author       : Microsoft Corporation
+2025-03-27T17:03:24.1153030Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2025-03-27T17:03:24.1153122Z ==============================================================================
+2025-03-27T17:03:24.2597437Z Generating script.
+2025-03-27T17:03:24.2605096Z ========================== Starting Command Output ===========================
+2025-03-27T17:03:24.2618074Z [command]/usr/bin/bash --noprofile --norc /home/yuval/azure-agent/myagent/~/my-azure-project/pipelines/_temp/c915251d-60c7-4b68-bf92-17b878419eda.sh
+2025-03-27T17:03:24.2716680Z 100 files created in temp_blobs directory.
+2025-03-27T17:03:24.2733387Z 
+2025-03-27T17:03:24.2830827Z ##[section]Finishing: Generate Files
+2025-03-27T17:03:24.2845445Z ##[section]Starting: Upload and Copy Files
+2025-03-27T17:03:24.2850323Z ==============================================================================
+2025-03-27T17:03:24.2850777Z Task         : Command line
+2025-03-27T17:03:24.2850904Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2025-03-27T17:03:24.2851187Z Version      : 2.250.1
+2025-03-27T17:03:24.2851488Z Author       : Microsoft Corporation
+2025-03-27T17:03:24.2851611Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2025-03-27T17:03:24.2851895Z ==============================================================================
+2025-03-27T17:03:24.4503488Z Generating script.
+2025-03-27T17:03:24.4528012Z ========================== Starting Command Output ===========================
+2025-03-27T17:03:24.4551579Z [command]/usr/bin/bash --noprofile --norc /home/yuval/azure-agent/myagent/~/my-azure-project/pipelines/_temp/7264c993-32c3-46fa-91f8-aebbce889739.sh
+2025-03-27T17:03:27.4037350Z Using Storage Accounts: sg1oizgrfizgvyyy and sg2oizgrfizgvyyy
+2025-03-27T17:03:28.1863960Z WARNING: 
+2025-03-27T17:03:28.1865309Z There are no credentials provided in your command and environment, we will query for account key for your storage account.
+2025-03-27T17:03:28.1866274Z It is recommended to provide --connection-string, --account-key or --sas-token in your command as credentials.
+2025-03-27T17:03:28.1867214Z 
+2025-03-27T17:03:28.1867923Z You also can add `--auth-mode login` in your command to use Azure Active Directory (Azure AD) for authorization if your login account is assigned required RBAC roles.
+2025-03-27T17:03:28.1868932Z For more information about RBAC roles in storage, visit https://learn.microsoft.com/azure/storage/common/storage-auth-aad-rbac-cli.
+2025-03-27T17:03:28.1869265Z 
+2025-03-27T17:03:28.1869542Z In addition, setting the corresponding environment variables can avoid inputting credentials in your command. Please use --help to get more information about environment variable usage.
+2025-03-27T17:03:30.3535295Z WARNING: 
+2025-03-27T17:03:30.3536187Z There are no credentials provided in your command and environment, we will query for account key for your storage account.
+2025-03-27T17:03:30.3536589Z It is recommended to provide --connection-string, --account-key or --sas-token in your command as credentials.
+2025-03-27T17:03:30.3536868Z 
+2025-03-27T17:03:30.3537113Z You also can add `--auth-mode login` in your command to use Azure Active Directory (Azure AD) for authorization if your login account is assigned required RBAC roles.
+2025-03-27T17:03:30.3537366Z For more information about RBAC roles in storage, visit https://learn.microsoft.com/azure/storage/common/storage-auth-aad-rbac-cli.
+2025-03-27T17:03:30.3537648Z 
+2025-03-27T17:03:30.3538154Z In addition, setting the corresponding environment variables can avoid inputting credentials in your command. Please use --help to get more information about environment variable usage.
+2025-03-27T17:03:32.9323006Z WARNING: 
+2025-03-27T17:03:32.9323736Z There are no credentials provided in your command and environment, we will query for account key for your storage account.
+2025-03-27T17:03:32.9324208Z It is recommended to provide --connection-string, --account-key or --sas-token in your command as credentials.
+2025-03-27T17:03:32.9324513Z 
+2025-03-27T17:03:32.9324958Z You also can add `--auth-mode login` in your command to use Azure Active Directory (Azure AD) for authorization if your login account is assigned required RBAC roles.
+2025-03-27T17:03:32.9325434Z For more information about RBAC roles in storage, visit https://learn.microsoft.com/azure/storage/common/storage-auth-aad-rbac-cli.
+2025-03-27T17:03:32.9325744Z 
+2025-03-27T17:03:32.9326192Z In addition, setting the corresponding environment variables can avoid inputting credentials in your command. Please use --help to get more information about environment variable usage.
+2025-03-27T17:03:34.7600508Z 
+2025-03-27T17:03:34.9034856Z 1/2: "file_1.txt"[####################################################]  100.0000%
+2025-03-27T17:03:34.9037590Z 2/2: "file_2.txt"[####################################################]  100.0000%
+2025-03-27T17:03:34.9039727Z Finished[#############################################################]  100.0000%
+2025-03-27T17:03:34.9753483Z [
+2025-03-27T17:03:34.9754023Z   {
+2025-03-27T17:03:34.9754220Z     "Blob": "https://sg1oizgrfizgvyyy.blob.core.windows.net/container1/file_1.txt",
+2025-03-27T17:03:34.9754431Z     "Last Modified": "2025-03-27T17:03:35+00:00",
+2025-03-27T17:03:34.9755223Z     "Type": "text/plain",
+2025-03-27T17:03:34.9755393Z     "eTag": "\"0x8DD6D514F84376E\""
+2025-03-27T17:03:34.9755908Z   },
+2025-03-27T17:03:34.9756196Z   {
+2025-03-27T17:03:34.9756369Z     "Blob": "https://sg1oizgrfizgvyyy.blob.core.windows.net/container1/file_2.txt",
+2025-03-27T17:03:34.9757022Z     "Last Modified": "2025-03-27T17:03:35+00:00",
+2025-03-27T17:03:34.9758007Z     "Type": "text/plain",
+2025-03-27T17:03:34.9758184Z     "eTag": "\"0x8DD6D514F99DF39\""
+2025-03-27T17:03:34.9758338Z   }
+2025-03-27T17:03:34.9758454Z ]
+2025-03-27T17:03:35.1414928Z All files uploaded to Storage Account 1.
+2025-03-27T17:03:35.1415734Z se=2025-10-10T00%3A00%3A00Z&sp=rl&sv=2022-11-02&sr=c&sig=Cw2Z8%2BJ66hSUSz%2B6DEeu14bxsP37JyKOV4JMva%2B8WMw%3D
+2025-03-27T17:03:35.1616199Z INFO: azcopy 10.28.0: A newer version 10.28.1 is available to download
+2025-03-27T17:03:35.1616523Z 
+2025-03-27T17:03:35.1616677Z INFO: Scanning...
+2025-03-27T17:03:37.0723847Z WARN: Failed to create one or more destination container(s). Your transfers may still succeed if the container already exists.
+2025-03-27T17:03:37.0728316Z INFO: Any empty folders will not be processed, because source and/or destination doesn't have full folder support
+2025-03-27T17:03:37.2118562Z 
+2025-03-27T17:03:37.2119545Z Job cccb0901-6510-8e42-4b8b-70159450b929 has started
+2025-03-27T17:03:37.2119908Z Log file is located at: /home/yuval/.azcopy/cccb0901-6510-8e42-4b8b-70159450b929.log
+2025-03-27T17:03:37.2120195Z 
+2025-03-27T17:03:39.2129438Z 
+2025-03-27T17:03:39.2130313Z 100.0 %, 2 Done, 0 Failed, 0 Pending, 0 Skipped, 2 Total, 2-sec Throughput (Mb/s): 0.0002
+2025-03-27T17:03:39.2130455Z 
+2025-03-27T17:03:39.2130547Z 
+2025-03-27T17:03:39.2130710Z Job cccb0901-6510-8e42-4b8b-70159450b929 summary
+2025-03-27T17:03:39.2130993Z Elapsed Time (Minutes): 0.0333
+2025-03-27T17:03:39.2131133Z Number of File Transfers: 2
+2025-03-27T17:03:39.2131271Z Number of Folder Property Transfers: 0
+2025-03-27T17:03:39.2131648Z Number of Symlink Transfers: 0
+2025-03-27T17:03:39.2131793Z Total Number of Transfers: 2
+2025-03-27T17:03:39.2131932Z Number of File Transfers Completed: 2
+2025-03-27T17:03:39.2132073Z Number of Folder Transfers Completed: 0
+2025-03-27T17:03:39.2132222Z Number of File Transfers Failed: 0
+2025-03-27T17:03:39.2132365Z Number of Folder Transfers Failed: 0
+2025-03-27T17:03:39.2132505Z Number of File Transfers Skipped: 0
+2025-03-27T17:03:39.2132931Z Number of Folder Transfers Skipped: 0
+2025-03-27T17:03:39.2133111Z Total Number of Bytes Transferred: 44
+2025-03-27T17:03:39.2133254Z Final Job Status: Completed
+2025-03-27T17:03:39.2133496Z 
+2025-03-27T17:03:39.2152941Z All files copied from Storage Account A to B.
+2025-03-27T17:03:39.2177202Z 
+2025-03-27T17:03:39.2223902Z ##[section]Finishing: Upload and Copy Files
+2025-03-27T17:03:39.2250956Z ##[section]Starting: Delete Generated Files
+2025-03-27T17:03:39.2258279Z ==============================================================================
+2025-03-27T17:03:39.2258815Z Task         : Command line
+2025-03-27T17:03:39.2258927Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2025-03-27T17:03:39.2259042Z Version      : 2.250.1
+2025-03-27T17:03:39.2259112Z Author       : Microsoft Corporation
+2025-03-27T17:03:39.2259191Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2025-03-27T17:03:39.2259293Z ==============================================================================
+2025-03-27T17:03:39.3834297Z Generating script.
+2025-03-27T17:03:39.3874641Z Script contents:
+2025-03-27T17:03:39.3875334Z rm -rf /home/yuval/my-azure-project/pipelines/temp_blobs/
+2025-03-27T17:03:39.3875898Z ========================== Starting Command Output ===========================
+2025-03-27T17:03:39.3921039Z [command]/usr/bin/bash --noprofile --norc /home/yuval/azure-agent/myagent/~/my-azure-project/pipelines/_temp/0d13a93e-509a-4493-9bc2-99b047369fcd.sh
+2025-03-27T17:03:39.4002743Z 
+2025-03-27T17:03:39.4077867Z ##[section]Finishing: Delete Generated Files
+2025-03-27T17:03:39.4092877Z ##[section]Starting: Update Git
+2025-03-27T17:03:39.4124818Z ==============================================================================
+2025-03-27T17:03:39.4125551Z Task         : Command line
+2025-03-27T17:03:39.4125673Z Description  : Run a command line script using Bash on Linux and macOS and cmd.exe on Windows
+2025-03-27T17:03:39.4126593Z Version      : 2.250.1
+2025-03-27T17:03:39.4126884Z Author       : Microsoft Corporation
+2025-03-27T17:03:39.4127156Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/command-line
+2025-03-27T17:03:39.4127457Z ==============================================================================
+2025-03-27T17:03:39.5826048Z Generating script.
+2025-03-27T17:03:39.5833384Z ========================== Starting Command Output ===========================
+2025-03-27T17:03:39.5856802Z [command]/usr/bin/bash --noprofile --norc /home/yuval/azure-agent/myagent/~/my-azure-project/pipelines/_temp/4e479df1-bd6b-42c5-b89e-2321d3131895.sh
+2025-03-27T17:03:39.6110682Z [main 2c30d24] run 2025-03-27 19:03:39
+2025-03-27T17:03:39.6111334Z  3 files changed, 14 insertions(+), 94 deletions(-)
+2025-03-27T17:03:39.6111566Z  rewrite terraform/terraform.tfstate.backup (98%)
+2025-03-27T17:03:41.3685047Z To github.com:yuvalmaimon3/my-azure-project.git
+2025-03-27T17:03:41.3686008Z    c6b347a..2c30d24  main -> main
+2025-03-27T17:03:41.3707028Z 
+2025-03-27T17:03:41.3769168Z ##[section]Finishing: Update Git
+2025-03-27T17:03:41.3807180Z ##[section]Starting: Checkout yuvalmaimon3/my-azure-project@main to s
+2025-03-27T17:03:41.3810432Z ==============================================================================
+2025-03-27T17:03:41.3810792Z Task         : Get sources
+2025-03-27T17:03:41.3810909Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2025-03-27T17:03:41.3811006Z Version      : 1.0.0
+2025-03-27T17:03:41.3811077Z Author       : Microsoft
+2025-03-27T17:03:41.3811165Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2025-03-27T17:03:41.3811261Z ==============================================================================
+2025-03-27T17:03:41.6793077Z Cleaning any cached credential from repository: yuvalmaimon3/my-azure-project (GitHub)
+2025-03-27T17:03:41.6886845Z ##[section]Finishing: Checkout yuvalmaimon3/my-azure-project@main to s
+2025-03-27T17:03:41.6916503Z ##[section]Starting: Finalize Job
+2025-03-27T17:03:41.6926851Z TestResultLogParser: JasmineTestResultParser : Starting jasmine test result parser.
+2025-03-27T17:03:41.6926997Z TestResultLogParser: JestTestResultParser : Starting jest test result parser.
+2025-03-27T17:03:41.6927130Z TestResultLogParser: MochaTestResultParser : Starting mocha test result parser.
+2025-03-27T17:03:41.6927258Z TestResultLogParser: PythonTestResultParser : Starting python test result parser.
+2025-03-27T17:03:41.9340712Z TestResultLogParser: Waiting for log plugin to finish, pending process 2 log lines.
+2025-03-27T17:03:42.1663761Z Cleaning up task key
+2025-03-27T17:03:42.1664456Z Start cleaning up orphan processes.
+2025-03-27T17:03:42.1728248Z ##[section]Finishing: Finalize Job
+2025-03-27T17:03:42.1748777Z ##[section]Finishing: Job

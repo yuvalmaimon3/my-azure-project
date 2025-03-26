@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-09-01",
+      "name": "[concat('sg1', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2022-09-01",
+      "name": "[concat('sg2', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2022-09-01",
+      "name": "[concat('sg1', uniqueString(resourceGroup().id), '/default/container1')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', concat('sg1', uniqueString(resourceGroup().id)))]"
+      ],
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2022-09-01",
+      "name": "[concat('sg2', uniqueString(resourceGroup().id), '/default/container2')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', concat('sg2', uniqueString(resourceGroup().id)))]"
+      ],
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "storageAccount1Name": {
+      "type": "string",
+      "value": "[concat('sg1', uniqueString(resourceGroup().id))]"
+    },
+    "storageAccount2Name": {
+      "type": "string",
+      "value": "[concat('sg2', uniqueString(resourceGroup().id))]"
+    }
+  }
+}

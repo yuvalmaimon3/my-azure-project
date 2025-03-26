@@ -1,0 +1,136 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2021-05-01",
+      "name": "myVnet",
+      "location": "eastus",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "mySubnet",
+            "properties": {
+              "addressPrefix": "10.0.0.0/24"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2021-05-01",
+      "name": "myNSG",
+      "location": "eastus",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "AllowSSH",
+            "properties": {
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "22",
+              "sourceAddressPrefix": "46.116.122.216",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 1000,
+              "direction": "Inbound"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2021-05-01",
+      "name": "myPublicIP",
+      "location": "eastus",
+      "sku": {
+        "name": "Basic"
+      },
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic"
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2021-05-01",
+      "name": "myNIC",
+      "location": "eastus",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkSecurityGroups', 'myNSG')]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "subnet": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'myVnet', 'mySubnet')]"
+              },
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'myPublicIP')]"
+              }
+            }
+          }
+        ],
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', 'myNSG')]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2021-11-01",
+      "name": "myVM",
+      "location": "eastus",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', 'myNIC')]"
+      ],
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "Standard_B1s"
+        },
+        "osProfile": {
+          "computerName": "myVM",
+          "adminUsername": "azureuser",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "ssh": {
+              "publicKeys": [
+                {
+                  "path": "/home/azureuser/.ssh/authorized_keys",
+                  "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC+A3CUqvUWY/tzCe4XQdEA8Ehz6xzCV47z/iZFFizdd3LequoOJ93YQ8pLi0/iH5gE9BA29NiQNE4iVjIuA4bT63ug8tkmYMr+kGci06PaJBHRxhJxlQrtWQZ45eDPipM60EOtRpZMvsmSgVwVJcnZROrsVQGa2IuQ/136Jl4Lr1dd9GJF084GtPPTVH95XtJyHsk6Fj32HMXC6JIqwI4z2m5VL/KbAX9gsFHmUpJHAIUT/7Kf5/QjlVRBZ/q1pVvWzqPAHQc4JiTPviV2DjYUoviuJ0cg0owPKVasr/UeOjlfMd7EySZM6QJhiVmxfBzIfauk9SzvMeIIZDjl1ZgLAWuyHftbsgMHKYP5ut24N9K7ANje73apfOyY+xdIGXpbEEdSjOvoXKsoiVq793RTdub42tLClm+TM5FrvI/dA98PPGIqVQD6TwATz744kafEg4XMerCEgk0Rmuw5lfFMFSz+rf8bBC4sewQ7TJn9KURJ3lEW2d7dRRxlNQTAnwM= yuval@DESKTOP-RC2FOAD"
+                }
+              ]
+            }
+          }
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "Canonical",
+            "offer": "UbuntuServer",
+            "sku": "18.04-LTS",
+            "version": "latest"
+          },
+          "osDisk": {
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', 'myNIC')]"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
