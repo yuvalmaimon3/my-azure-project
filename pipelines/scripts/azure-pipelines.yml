@@ -39,16 +39,9 @@ steps:
 # Update git. inclouding updating terrafrom state files
 - script: |
     DATE=$(date '+%Y-%m-%d %H:%M:%S')
-    cd ~/my-azure-project
+    cd /home/yuval/my-azure-project
     git add .
     git commit -m "run $DATE"
     git push
   displayName: 'Update Git'
   continueOnError: false
-
-# Write logs
-- script: |
-    if [ $? -ne 0 ]; then
-      echo "Step failed at $(date '+%Y-%m-%d %H:%M:%S')" >> /home/yuval/my-azure-project/pipelines/log.txt
-    fi
-  displayName: 'Log Failures'
