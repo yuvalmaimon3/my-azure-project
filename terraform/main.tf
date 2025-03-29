@@ -14,7 +14,9 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_resource_group_template_deployment" "storage_deploy" {
   name                = "storage-deployment"
   resource_group_name = azurerm_resource_group.rg.name
-  template_content    = file("/home/yuval/my-azure-project/arm-templates/storage-template.json")
+  template_content    = file("${var.work_dir}/arm-templates/storage-template.json")
+  
+
 
   deployment_mode = "Incremental"
 }
@@ -22,7 +24,7 @@ resource "azurerm_resource_group_template_deployment" "storage_deploy" {
 resource "azurerm_resource_group_template_deployment" "networking_vm_deploy" {
   name                = "networking-vm-deployment"
   resource_group_name = azurerm_resource_group.rg.name
-  template_content    = file("/home/yuval/my-azure-project/arm-templates/networking-and-vm-template.json")
+  template_content    = file("${var.work_dir}/arm-templates/networking-and-vm-template.json")
 
   deployment_mode = "Incremental"
 }

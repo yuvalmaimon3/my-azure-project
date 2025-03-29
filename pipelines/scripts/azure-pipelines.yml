@@ -4,17 +4,23 @@ trigger:
 pool:
   name: Default
 
+variables:
+- name: WORK_DIR
+  value: /home/yuval/my-azure-project 
+
 steps:
 - script: |
-    cd /home/yuval/my-azure-project/terraform
-    terraform apply -auto-approve
+    export TF_VAR_work_dir=$(WORK_DIR)
+    echo $TF_VAR_work_dir
+    terraform -chdir=$(WORK_DIR)/terraform init
+    terraform -chdir=$(WORK_DIR)/terraform apply -auto-approve
   displayName: 'Run Terraform. Create storage network and virtual machine'
   continueOnError: false
 
 # Generate files to upload
 - script: |
-    chmod +x /home/yuval/my-azure-project/pipelines/scripts/generate-files.sh
-    /home/yuval/my-azure-project/pipelines/scripts/generate-files.sh
+    chmod +x $(WORK_DIR)/pipelines/scripts/generate-files.sh
+    $(WORK_DIR)/pipelines/scripts/generate-files.sh
   displayName: 'Generate Files'
   continueOnError: false
 
@@ -23,12 +29,12 @@ steps:
     STORAGE_ACCOUNT_1=$(az deployment group show --resource-group yuval-rg --name storage-deployment --query properties.outputs.storageAccount1Name.value -o tsv)
     STORAGE_ACCOUNT_2=$(az deployment group show --resource-group yuval-rg --name storage-deployment --query properties.outputs.storageAccount2Name.value -o tsv)
 
-    bash /home/yuval/my-azure-project/pipelines/scripts/upload-and-copy-files.sh "$STORAGE_ACCOUNT_1" "$STORAGE_ACCOUNT_2"
+    bash $(WORK_DIR)/pipelines/scripts/upload-and-copy-files.sh "$STORAGE_ACCOUNT_1" "$STORAGE_ACCOUNT_2"
   displayName: 'Upload and Copy Files'
 
 # Remove leftovers
 - script: |
-    rm -rf /home/yuval/my-azure-project/pipelines/temp_blobs/
+    rm -rf $(WORK_DIR)/pipelines/temp_blobs/
   displayName: 'Delete Generated Files'
   continueOnError: false
 

@@ -26,7 +26,7 @@ export STORAGE_ACCOUNT_1_SAS=$(az storage container generate-sas \
 # Uploading files to first storage
 
     az storage blob upload-batch \
-  --source /home/yuval/my-azure-project/pipelines/temp_blobs/ \
+  --source $WORK_DIR/pipelines/temp_blobs/ \
   --destination $CONTAINER_1 \
   --account-name $STORAGE_ACCOUNT_1
 
