@@ -44,9 +44,11 @@ Access to the machine allow only from my home IP and allow only with SSH key.
 
 * Points for Improvement:
 
-Separation of Virtual Network and Security Group creation into a separate ARM file from the Virtual Machine deployment, ensuring there are two ARM files.
+Separation of Virtual Network and Security Group creation into a separate ARM file from the Virtual Machine deployment ARM file, ensuring there are different ARM files for each Azure service.
 
 Using variables in ARM templates enhances modularity and scalability for large and dynamic needs.
+
+Add installation and login scripts to azure cli to ensure new agents will be able to run the pipeline.
 
 ![image](https://github.com/user-attachments/assets/0719783f-0565-4c43-9147-2e5513a71dd9)
 
